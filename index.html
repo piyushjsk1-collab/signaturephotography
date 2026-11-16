@@ -432,6 +432,17 @@ img{max-width:100%}
   .banner-image{height:auto !important;max-height:none !important;object-fit:contain !important;border-radius:4px 23px 4px 23px}
 }
 
+
+/* WHATSAPP BUTTON BELOW BOTH TOP IMAGES */
+.image-wrapper .whatsapp-overlay-btn{
+  position:relative !important;
+  left:auto !important;
+  bottom:auto !important;
+  transform:none !important;
+  align-self:center;
+  margin:8px auto 0;
+}
+
 </style>
 </head>
 
@@ -476,13 +487,13 @@ img{max-width:100%}
 <!-- TOP BANNERS -->
 <div class="image-section">
 <div class="image-wrapper">
-<a href="https://dgxservice.site/uniquephotography" class="banner-image-link">
+<a href="#" data-whatsapp-link class="banner-image-link">
 <img class="banner-image" src="image.png" alt="Signature Photography Banner 1">
 </a>
-<a href="https://dgxservice.site/uniquephotography" class="banner-image-link">
+<a href="#" data-whatsapp-link class="banner-image-link">
 <img class="banner-image" src="image.png" alt="Signature Photography Banner 2">
 </a>
-<a href="https://dgxservice.site/uniquephotography" class="whatsapp-overlay-btn">
+<a href="#" data-whatsapp-link class="whatsapp-overlay-btn">
 <i class="fab fa-whatsapp"></i> WhatsApp Now
 </a>
 </div>
@@ -493,7 +504,7 @@ img{max-width:100%}
 <span class="hero-label"><i class="fas fa-camera"></i> Professional Photography Studio</span>
 <h1>Capture <span>Moments</span> That Last Forever</h1>
 <p>Award-winning photography studio specialized in weddings, events, fashion, and corporate media. Creating beautiful memories through professional photography and creative storytelling.</p>
-<a href="https://dgxservice.site/uniquephotography" class="hero-btn">
+<a href="#" data-whatsapp-link class="hero-btn">
 <i class="fab fa-whatsapp"></i> Book Your Shoot
 </a>
 </div>
@@ -704,12 +715,12 @@ San Francisco, CA 94105, USA</p>
 </main>
 
 <!-- FLOATING WHATSAPP -->
-<a href="https://dgxservice.site/uniquephotography" class="float-wa" target="_blank" rel="noopener">
+<a href="#" data-whatsapp-link class="float-wa" target="_blank" rel="noopener">
 <i class="fab fa-whatsapp"></i> <span>WhatsApp Now</span>
 </a>
 
 <!-- BOTTOM BANNER -->
-<a href="https://dgxservice.site/uniquephotography" class="bottom-fixed-banner">
+<a href="#" data-whatsapp-link class="bottom-fixed-banner">
 <img src="banner.jpeg" alt="Signature Photography Banner">
 </a>
 
@@ -746,7 +757,7 @@ San Francisco, CA 94105, USA</p>
 <div class="social-icons">
 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-<a href="https://dgxservice.site/uniquephotography" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<a href="#" data-whatsapp-link aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
 <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
 <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
 </div>
@@ -771,6 +782,18 @@ Premium Photography & Media Studio | Empowering Creativity
 </footer>
 
 <script>
+// WHATSAPP SETTINGS — CHANGE ONLY THESE VALUES
+const WHATSAPP_NUMBER = "919259441461"; // Country code + number, without +, spaces or dashes
+const WHATSAPP_MESSAGE = "Hello! I Want !D.";
+const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+
+document.querySelectorAll('[data-whatsapp-link]').forEach(link => {
+  link.href = WHATSAPP_LINK;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+});
+
+// Apply the same WhatsApp link to every WhatsApp/banner booking button
 // MOBILE NAVIGATION
 const hamburger = document.getElementById('hamburgerBtn');
 const navMenu = document.getElementById('navMenu');
